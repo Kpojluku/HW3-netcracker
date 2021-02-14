@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>Registration form</h1>
+<form action="#" th:action="@{/greeting}" th:object="${greeting}" method="post">
+    <p>Имя: <input type="text" style=position:absolute;left:8%; th:field="*{firstName}"/></p>
+    <p>Фамилия: <input type="text" style=position:absolute;left:8%; th:field="*{lastName}"/></p>
+    <p>Отчество: <input type="text" style=position:absolute;left:8%; th:field="*{patronymic}"/></p>
+    <p>Уровень зарплаты: <input type="text" required pattern="\d+" style=position:absolute;left:8%;
+                                th:field="*{salary}"/></p>
+    <p>email: <input type="text" required pattern="\S+@[a-z]+.[a-z]{2}" style=position:absolute;left:8%;
+                     th:field="*{email}"/></p>
+    <p>Место работы: <input type="text" style=position:absolute;left:8%; th:field="*{placeOfWork}"/></p>
+    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+</form>
+<form method="POST" enctype="multipart/form-data" action="/upload">
+    <table>
+        <h2>Загрузить данные о пользователе из файла</h2>
+        <tr>
+            <td>File to upload:</td>
+            <td><input type="file" name="file"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Upload"/></td>
+        </tr>
+    </table>
+</form>
+<h2>Найти пользователя</h2>
+<form action="#" th:action="@{/greeting2}" th:object="${greeting}" method="post">
+    <p>Имя: <input type="text" style=position:absolute;left:8%; th:field="*{firstName}"/></p>
+    <p>Фамилия: <input type="text" style=position:absolute;left:8%; th:field="*{lastName}"/></p>
+    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+</form>
+</body>
+</html>
